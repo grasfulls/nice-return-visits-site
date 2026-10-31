@@ -164,6 +164,24 @@ p {
   color: #64748b;
 }
 
+.legal h2 {
+  margin-top: 2rem;
+}
+
+.legal ul {
+  padding-left: 1.25rem;
+  line-height: 1.7;
+}
+
+.legal li + li {
+  margin-top: 0.6rem;
+}
+
+.legal .updated {
+  margin-top: 0;
+  color: #64748b;
+}
+
 .faq-item {
   margin-top: 2rem;
 }
