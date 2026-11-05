@@ -713,6 +713,25 @@ select:focus-visible,
   }
 }
 
+.home-page > main.content {
+  width: min(100%, 1200px);
+  max-width: none;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  padding-inline: max(1.25rem, calc((min(100vw, 1200px) - 720px) / 2));
+  background: #f8fafc;
+}
+
+.home-page > .site-footer {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  width: min(100%, 1200px);
+  margin-inline: auto;
+  padding-inline: max(1.25rem, calc((min(100vw, 1200px) - 1120px) / 2));
+}
+
 .getting-started-main {
   padding-top: 1rem;
 }
