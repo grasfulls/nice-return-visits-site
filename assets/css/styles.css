@@ -243,6 +243,9 @@ p {
 }
 
 .home-page .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: block;
   padding: 0.8rem max(1.25rem, calc((100% - 1120px) / 2));
   background: rgba(255, 255, 255, 0.96);
@@ -346,6 +349,14 @@ p {
   flex-wrap: wrap;
   align-items: center;
   gap: 0.75rem;
+}
+
+.action-item p {
+  max-width: 22rem;
+  margin: 0.55rem 0 0;
+  color: #64748b;
+  font-size: 0.86rem;
+  line-height: 1.5;
 }
 
 .action-group .button,
@@ -472,6 +483,12 @@ p {
 .home-footer {
   padding: 1.25rem max(1.25rem, calc((100% - 1120px) / 2));
   background: rgba(255, 255, 255, 0.96);
+}
+
+.home-footer .copyright {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.9rem;
 }
 
 .footer-brand {
