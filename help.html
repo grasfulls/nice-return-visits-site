@@ -8,15 +8,29 @@
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="index.html">Nice Return Visits <span>NRVs</span></a>
-    <nav aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="getting-started.html">Getting Started</a>
-      <a href="help.html" aria-current="page">Help</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+  <header class="site-header site-header-standard">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/icon-180.png" alt="" width="48" height="48">
+        <span class="brand-name">NRV - Nice Return Visits</span>
+      </a>
+      <div class="header-controls">
+        <nav aria-label="Main navigation">
+          <a href="index.html">Home</a>
+          <a href="getting-started.html">Getting Started</a>
+          <a href="help.html" aria-current="page">Help</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="language-control">
+          <label for="language-selector">Language</label>
+          <select id="language-selector" name="language">
+            <option value="en" selected>English</option>
+            <option value="es" disabled>Spanish - Coming Soon</option>
+          </select>
+        </div>
+      </div>
+    </div>
   </header>
   <main class="content">
     <p class="eyebrow">Support</p>

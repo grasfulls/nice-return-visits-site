@@ -26,14 +26,11 @@
           <label for="language-selector">Language</label>
           <select id="language-selector" name="language">
             <option value="en" selected>English</option>
-            <option value="es">Español</option>
+            <option value="es" disabled>Spanish - Coming Soon</option>
           </select>
         </div>
       </div>
     </div>
-    <p class="language-notice" id="language-notice" role="status" aria-live="polite" hidden>
-      Español estará disponible próximamente. Spanish will be available soon.
-    </p>
   </header>
 
   <main class="home-main getting-started-main">
@@ -172,13 +169,5 @@
     </nav>
   </footer>
 
-  <script>
-    const languageSelector = document.getElementById("language-selector");
-    const languageNotice = document.getElementById("language-notice");
-
-    languageSelector.addEventListener("change", () => {
-      languageNotice.hidden = languageSelector.value !== "es";
-    });
-  </script>
 </body>
 </html>

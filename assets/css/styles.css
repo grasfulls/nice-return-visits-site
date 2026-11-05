@@ -12,7 +12,7 @@
 }
 
 body {
-  min-width: 320px;
+  min-width: 0;
   min-height: 100vh;
   margin: 0;
   display: flex;
@@ -232,7 +232,8 @@ p {
   z-index: 1;
 }
 
-.home-page .site-header {
+.home-page .site-header,
+.site-header-standard {
   position: sticky;
   top: 0;
   z-index: 10;
@@ -552,7 +553,8 @@ select:focus-visible {
 }
 
 @media (max-width: 760px) {
-  .home-page .site-header {
+  .home-page .site-header,
+  .site-header-standard {
     padding: 0.8rem 1.25rem;
   }
 
