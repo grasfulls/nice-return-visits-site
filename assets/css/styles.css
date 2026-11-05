@@ -356,6 +356,15 @@ p {
   min-width: 0;
 }
 
+.home-hero .action-item {
+  text-align: center;
+}
+
+.home-hero .action-item .button {
+  width: 9rem;
+  text-align: center;
+}
+
 .action-item p {
   max-width: 100%;
   margin: 0.55rem 0 0;
