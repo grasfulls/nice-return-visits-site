@@ -732,6 +732,34 @@ select:focus-visible,
   padding-inline: max(1.25rem, calc((min(100vw, 1200px) - 1120px) / 2));
 }
 
+/* Header content follows the main body's content boundaries */
+.home-page {
+  --page-w: 720px;
+  --page-gutter: 1.25rem;
+}
+
+.home-page:has(.home-main) {
+  --page-w: 960px;
+}
+
+.home-page .site-header {
+  padding-inline: max(var(--page-gutter), calc((min(100vw, 1200px) - var(--page-w)) / 2));
+}
+
+.home-page .header-inner {
+  max-width: none;
+}
+
+@media (max-width: 760px) {
+  .home-page:has(.home-main) {
+    --page-gutter: 1rem;
+  }
+
+  .home-page .site-header {
+    padding-inline: var(--page-gutter);
+  }
+}
+
 .getting-started-main {
   padding-top: 1rem;
 }
