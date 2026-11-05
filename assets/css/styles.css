@@ -182,6 +182,60 @@ p {
   color: #64748b;
 }
 
+.legal ol {
+  padding-left: 1.25rem;
+  line-height: 1.7;
+}
+
+.legal ol li + li {
+  margin-top: 0.6rem;
+}
+
+.legal [id] {
+  scroll-margin-top: 12rem;
+}
+
+.help-guide {
+  overflow-wrap: anywhere;
+}
+
+.help-guide h3 {
+  margin: 1.5rem 0 0.5rem;
+  color: #14251f;
+  font-size: 1.05rem;
+}
+
+.help-guide h4 {
+  margin: 1.25rem 0 0.4rem;
+  color: #14251f;
+  font-size: 1rem;
+}
+
+.help-toc {
+  margin: 1.5rem 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid #dbe5e1;
+  border-radius: 0.65rem;
+  background: #f8fafc;
+}
+
+.help-toc h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.help-toc ul {
+  margin: 0;
+}
+
+.help-note {
+  padding: 1rem 1.1rem;
+  border: 1px solid #dbe5e1;
+  border-radius: 0.65rem;
+  background: #eef6f2;
+  color: #334155;
+}
+
 .faq-item {
   margin-top: 2rem;
 }
