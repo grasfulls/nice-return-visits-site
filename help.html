@@ -22,13 +22,13 @@
           <a href="faq.html">FAQ</a>
           <a href="contact.html">Contact</a>
         </nav>
-        <div class="language-control">
-          <label for="language-selector">Language</label>
-          <select id="language-selector" name="language">
-            <option value="en" selected>English</option>
-            <option value="es" disabled>Spanish - Coming Soon</option>
-          </select>
-        </div>
+        <details class="language-menu">
+          <summary aria-label="Language">Language</summary>
+          <ul class="language-menu-list" aria-label="Language options">
+            <li lang="en"><button type="button" data-language-option aria-current="true">English</button></li>
+            <li lang="es"><span aria-disabled="true">Spanish — Coming Soon</span></li>
+          </ul>
+        </details>
       </div>
     </div>
   </header>
@@ -42,5 +42,6 @@
     <p>&copy; Nice Return Visits (NRVs)</p>
     <div><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></div>
   </footer>
+  <script src="assets/js/language-menu.js" defer></script>
 </body>
 </html>

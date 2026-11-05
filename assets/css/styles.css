@@ -285,22 +285,82 @@ p {
   justify-content: flex-end;
 }
 
-.language-control {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
+.language-menu {
+  position: relative;
   color: #475569;
   font-size: 0.9rem;
 }
 
-.language-control select {
-  max-width: 8rem;
-  padding: 0.4rem 1.5rem 0.4rem 0.5rem;
+.language-menu summary {
+  padding: 0.35rem 0;
+  color: #475569;
+  cursor: pointer;
+  list-style: none;
+  white-space: nowrap;
+  font-size: 0.94rem;
+}
+
+.language-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.language-menu summary::after {
+  margin-left: 0.2rem;
+  content: "\25BE";
+  font-size: 0.72em;
+}
+
+.language-menu-list {
+  position: absolute;
+  top: calc(100% + 0.25rem);
+  right: 0;
+  z-index: 20;
+  min-width: 11rem;
+  margin: 0;
+  padding: 0.25rem;
+  list-style: none;
   border: 1px solid #cbd5e1;
   border-radius: 0.35rem;
   background: #fff;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+}
+
+.language-menu-list li {
+  padding: 0;
   color: #1e293b;
+}
+
+.language-menu-list button,
+.language-menu-list span {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  border: 0;
+  background: transparent;
+  color: inherit;
   font: inherit;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.language-menu-list button {
+  cursor: pointer;
+}
+
+.language-menu-list button[aria-current="true"] {
+  font-weight: 700;
+}
+
+.language-menu-list span[aria-disabled="true"] {
+  color: #64748b;
+  cursor: not-allowed;
+}
+
+@media (max-width: 760px) {
+  .language-menu-list {
+    right: auto;
+    left: 0;
+  }
 }
 
 .language-notice {
@@ -535,7 +595,8 @@ p {
 
 a:focus-visible,
 button:focus-visible,
-select:focus-visible {
+select:focus-visible,
+.language-menu summary:focus-visible {
   outline: 3px solid #f5b52e;
   outline-offset: 3px;
 }
