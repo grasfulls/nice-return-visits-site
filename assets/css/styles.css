@@ -330,16 +330,22 @@ p {
 
 .home-hero {
   max-width: 800px;
+  margin-inline: auto;
   padding: clamp(3.5rem, 8vw, 6.5rem) 0 1.5rem;
+  text-align: center;
 }
 
 .home-hero h1 {
   max-width: 780px;
+  margin-right: auto;
+  margin-left: auto;
   font-size: clamp(1.7rem, 3.5vw, 2.5rem);
 }
 
 .hero-description {
   max-width: 720px;
+  margin-right: auto;
+  margin-left: auto;
   color: #475569;
   font-size: 1.12rem;
 }
@@ -348,6 +354,7 @@ p {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  justify-content: center;
   gap: 0.5rem;
 }
 
@@ -408,6 +415,14 @@ p {
 .section-heading {
   max-width: 760px;
   margin-bottom: 1.4rem;
+}
+
+.core-section .section-heading,
+.optional-section .section-heading,
+.help-section .section-heading {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
 }
 
 .section-heading .eyebrow {
@@ -483,15 +498,14 @@ p {
 }
 
 .contact-section {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  display: block;
   border-top: 1px solid rgba(203, 213, 225, 0.9);
 }
 
 .contact-section .section-heading {
-  margin: 0;
+  width: 100%;
+  margin: 0 auto 1.4rem;
+  text-align: center;
 }
 
 .home-footer {
@@ -580,11 +594,6 @@ select:focus-visible {
 
   .optional-section {
     padding: 1.25rem 0.75rem;
-  }
-
-  .contact-section {
-    align-items: flex-start;
-    flex-direction: column;
   }
 
   .home-page .site-footer {
