@@ -331,6 +331,7 @@ p {
 }
 
 .language-menu-list button,
+.language-menu-list a,
 .language-menu-list span {
   display: block;
   width: 100%;
@@ -343,17 +344,13 @@ p {
   white-space: nowrap;
 }
 
-.language-menu-list button {
+.language-menu-list button,
+.language-menu-list a {
   cursor: pointer;
 }
 
-.language-menu-list button[aria-current="true"] {
+.language-menu-list [aria-current="page"] {
   font-weight: 700;
-}
-
-.language-menu-list span[aria-disabled="true"] {
-  color: #64748b;
-  cursor: not-allowed;
 }
 
 @media (max-width: 760px) {
