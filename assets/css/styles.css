@@ -229,9 +229,8 @@ p {
   position: fixed;
   z-index: -1;
   inset: 0;
-  background: url("../header-watermark.png") center 48% / min(1300px, 110vw) auto no-repeat;
+  background: url("../header-watermark.png") center / min(1800px, 150vw) auto no-repeat;
   content: "";
-  opacity: 0.045;
   pointer-events: none;
 }
 
@@ -247,8 +246,10 @@ p {
   top: 0;
   z-index: 10;
   display: block;
-  padding: 0.8rem max(1.25rem, calc((100% - 1120px) / 2));
-  background: rgba(255, 255, 255, 0.96);
+  width: min(100%, 1200px);
+  margin-inline: auto;
+  padding: 0.8rem max(1.25rem, calc((min(100vw, 1200px) - 1120px) / 2));
+  background: #fff;
 }
 
 .header-inner {
@@ -323,9 +324,10 @@ p {
 }
 
 .home-main {
-  width: min(100% - 2.5rem, 960px);
+  width: min(100%, 1200px);
   padding: 0 0 3rem;
-  background: rgba(248, 250, 252, 0.97);
+  padding-inline: max(1.25rem, calc((min(100vw, 1200px) - 960px) / 2));
+  background: #f8fafc;
 }
 
 .home-hero {
@@ -509,8 +511,10 @@ p {
 }
 
 .home-footer {
-  padding: 1.25rem max(1.25rem, calc((100% - 1120px) / 2));
-  background: rgba(255, 255, 255, 0.96);
+  width: min(100%, 1200px);
+  margin-inline: auto;
+  padding: 1.25rem max(1.25rem, calc((min(100vw, 1200px) - 1120px) / 2));
+  background: #fff;
 }
 
 .home-footer .copyright {
@@ -557,10 +561,6 @@ select:focus-visible {
 }
 
 @media (max-width: 760px) {
-  .home-page::before {
-    display: none;
-  }
-
   .home-page .site-header {
     padding: 0.8rem 1.25rem;
   }
@@ -581,7 +581,7 @@ select:focus-visible {
   }
 
   .home-main {
-    width: min(100% - 2rem, 960px);
+    padding-inline: 1rem;
   }
 
   .home-hero {
@@ -597,6 +597,7 @@ select:focus-visible {
   }
 
   .home-page .site-footer {
+    width: 100%;
     padding: 1.25rem;
   }
 }
