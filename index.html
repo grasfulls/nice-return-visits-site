@@ -3,37 +3,140 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Welcome to Nice Return Visits (NRVs).">
-  <title>Nice Return Visits | Home</title>
+  <meta name="description" content="Nice Return Visits (NRV) is a free, installable web app for organizing contact information, visit history, notes, and follow-up information.">
+  <title>Nice Return Visits (NRV) | Home</title>
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
+<body class="home-page">
   <header class="site-header">
-    <a class="brand" href="index.html">Nice Return Visits <span>NRVs</span></a>
-    <nav aria-label="Main navigation">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="getting-started.html">Getting Started</a>
-      <a href="help.html">Help</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/icon-180.png" alt="" width="48" height="48">
+        <span class="brand-name">NRV - Nice Return Visits</span>
+      </a>
+      <div class="header-controls">
+        <nav aria-label="Main navigation">
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="getting-started.html">Getting Started</a>
+          <a href="help.html">Help</a>
+          <a href="faq.html">FAQ</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="language-control">
+          <label for="language-selector">Language</label>
+          <select id="language-selector" name="language">
+            <option value="en" selected>English</option>
+            <option value="es">Español</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <p class="language-notice" id="language-notice" role="status" aria-live="polite" hidden>
+      Español estará disponible próximamente. Spanish will be available soon.
+    </p>
   </header>
-  <main>
-    <section class="intro">
-      <p class="eyebrow">Nice Return Visits (NRVs)</p>
-      <h1>Welcome</h1>
-      <p>This is the home of Nice Return Visits. Find help, read common questions, or get in touch with our support team.</p>
-      <a class="button" href="getting-started.html">Get started</a>
+
+  <main class="home-main">
+    <section class="home-hero">
+      <h1>Keep information for your “Nice” return visits organized and close at hand.</h1>
+      <p class="hero-description">NRV is a free, installable web app that helps you keep contact information, visit history, notes, and follow-up information organized in one place.</p>
+      <div class="action-group">
+        <button class="button" type="button" disabled>Open NRV</button>
+        <a class="button button-secondary" href="getting-started.html">Getting Started</a>
+      </div>
     </section>
-    <section class="link-grid" aria-label="Explore the site">
-      <a class="link-card" href="help.html"><h2>Help</h2><p>Find support and guidance.</p></a>
-      <a class="link-card" href="faq.html"><h2>FAQ</h2><p>Read answers to common questions.</p></a>
-      <a class="link-card" href="contact.html"><h2>Contact / Support</h2><p>Reach out to us by email.</p></a>
+
+    <section class="home-section core-section" aria-labelledby="core-heading">
+      <div class="section-heading">
+        <p class="eyebrow">Core Functions</p>
+        <h2 id="core-heading">Everything you need for your return visits</h2>
+        <p>Keep the everyday information and tools for your return visits together in one place.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card">
+          <h3>Contacts &amp; Visit History</h3>
+          <p>Keep contact information, notes, and visit history together.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Find &amp; Organize</h3>
+          <p>Search, filter, and sort contacts, and organize them using Cities, Regions, and Areas.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Maps, Locations &amp; Directions</h3>
+          <p>View contacts on a map, use address and location tools, place or adjust pins, and get directions to your return visits.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Print &amp; Share</h3>
+          <p>Print or share the information you need.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Backup &amp; Restore</h3>
+          <p>Create backups of your NRV information and restore them when needed.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section optional-section" aria-labelledby="optional-heading">
+      <div class="section-heading">
+        <p class="eyebrow">Choose what to enable</p>
+        <h2 id="optional-heading">Optional Features</h2>
+        <p>Keep NRV as simple as you want, or expand its use to your needs.</p>
+        <p>These features are off by default and can be enabled when you want them:</p>
+      </div>
+      <div class="feature-grid optional-grid">
+        <article class="feature-card">
+          <h3>Passphrase</h3>
+          <p>Add passphrase protection for your locally stored NRV information.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Switch to Dropbox Backup</h3>
+          <p>Use Dropbox for NRV backups.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Time in Service</h3>
+          <p>Track your time in service.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-section help-section" aria-labelledby="help-heading">
+      <div class="section-heading">
+        <p class="eyebrow">Support</p>
+        <h2 id="help-heading">Need a hand?</h2>
+        <p>Find step-by-step guidance, learn more about NRV's features, or get answers to common questions.</p>
+      </div>
+      <div class="help-links">
+        <a href="getting-started.html">Getting Started</a>
+        <a href="help.html">Help</a>
+        <a href="faq.html">Frequently Asked Questions</a>
+      </div>
+    </section>
+
+    <section class="home-section contact-section" aria-labelledby="contact-heading">
+      <div class="section-heading">
+        <h2 id="contact-heading">Questions or feedback?</h2>
+        <p>We’d be glad to hear from you.</p>
+      </div>
+      <a class="button button-secondary" href="contact.html">Contact Us</a>
     </section>
   </main>
-  <footer class="site-footer">
-    <p>&copy; Nice Return Visits (NRVs)</p>
-    <div><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="contact.html">Contact</a></div>
+
+  <footer class="site-footer home-footer">
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a class="footer-brand" href="index.html">Nice Return Visits</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </footer>
+
+  <script>
+    const languageSelector = document.getElementById("language-selector");
+    const languageNotice = document.getElementById("language-notice");
+
+    languageSelector.addEventListener("change", () => {
+      languageNotice.hidden = languageSelector.value !== "es";
+    });
+  </script>
 </body>
 </html>
