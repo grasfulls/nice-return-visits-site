@@ -222,16 +222,7 @@ p {
   position: relative;
   isolation: isolate;
   min-width: 0;
-  background: #f8fafc;
-}
-
-.home-page::before {
-  position: fixed;
-  z-index: -1;
-  inset: 0;
-  background: url("../header-watermark.png") center / min(1800px, 150vw) auto no-repeat;
-  content: "";
-  pointer-events: none;
+  background: #f8fafc url("../nrv-background.png") center / cover fixed no-repeat;
 }
 
 .home-page .site-header,
