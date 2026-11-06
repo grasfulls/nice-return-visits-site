@@ -276,7 +276,17 @@ p {
   position: relative;
   isolation: isolate;
   min-width: 0;
-  background: #f8fafc url("../nrv-background.png") center / cover fixed no-repeat;
+  background: #f8fafc;
+}
+
+/* Viewport-fixed layer: scales with the screen on every device, keeps aspect, centered */
+.home-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url("../nrv-background.png") center / cover no-repeat;
+  pointer-events: none;
 }
 
 .home-page .site-header,
