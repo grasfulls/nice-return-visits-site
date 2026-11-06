@@ -1008,3 +1008,14 @@ select:focus-visible,
     padding: 1rem;
   }
 }
+
+/* Home and Getting Started: same restrained panel framing as the other pages on desktop */
+@media (min-width: 761px) {
+  .home-page > .home-main,
+  .home-page > .site-header,
+  .home-page > .home-footer {
+    width: min(100%, 1024px);
+    box-sizing: border-box;
+    padding-inline: 2rem;
+  }
+}
