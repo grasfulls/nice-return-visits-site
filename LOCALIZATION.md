@@ -56,6 +56,54 @@ Users select a language by clicking a link; there is no automatic language detec
 
 ---
 
+## Website Visual Branding: Background Requirements
+
+**All website pages, in all languages, must use the shared NRV logo/background artwork.**
+
+### Background Specification
+
+The background image (`assets/nrv-background.png`) must:
+
+- **Fill the entire browser viewport** — edge-to-edge with no uncovered white margins
+- **Extend full width and full height** of the visible viewport
+- **Scale proportionally** — never stretch or distort the artwork
+- **Crop when necessary** to accommodate different viewport aspect ratios (e.g., very wide or very tall screens)
+- **Appear behind centered content** — preserve all existing centered foreground text, navigation, and page content
+- **Use CSS `background-size: cover`** — ensures complete viewport fill with proportional scaling
+- **Use `position: fixed; inset: 0; z-index: -1`** — maintains full viewport coverage even when scrolling
+- **Apply to all pages:** Home, Getting Started, Help, FAQ, Contact, Privacy, Terms, and all future pages
+
+### Implementation
+
+**HTML:** All pages (English and Spanish) use `<body class="home-page">`
+
+**CSS:**
+```css
+.home-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url("../nrv-background.png") center / cover no-repeat;
+  pointer-events: none;
+}
+
+.home-page main,
+.home-page .site-footer {
+  position: relative;
+  z-index: 1;
+}
+```
+
+**Future pages:** When adding new website pages to any language:
+1. Add `class="home-page"` to the `<body>` element
+2. The CSS background will automatically apply
+3. No additional background configuration is needed
+
+**Future languages:** The same background applies to all language versions. Do not create language-specific backgrounds.
+
+---
+
 ## Website-to-App Language Handoff
 
 When a user clicks the "Open NRV" button on the website, they are directed to the app at `https://grasfulls.github.io/nice-return-visits-app/` (the same URL from both English and Spanish pages).
@@ -322,8 +370,11 @@ Before releasing a new language, verify:
 - [ ] Brand names remain unchanged (NRV, Nice Return Visits, RV)
 - [ ] Navigation links point to the correct language
 - [ ] Language menu appears in all pages and is functional
-- [ ] Responsive design is tested at phone, tablet, and desktop widths
-- [ ] Links to the app are correct
+- [ ] **Background artwork appears on all pages, edge-to-edge, with no white margins** (phone, tablet, desktop, very wide)
+- [ ] **Background fills entire viewport with proportional scaling** (no stretch, no distortion)
+- [ ] **Centered content remains readable** over the background
+- [ ] Responsive design is tested at phone, tablet, desktop, and very-wide (ultra-wide/short) widths
+- [ ] Links to the app are correct and include proper `?lang=<code>` parameters
 - [ ] All external links work
 - [ ] Images and graphics display correctly
 - [ ] Footer and legal pages are complete

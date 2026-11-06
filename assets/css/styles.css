@@ -274,12 +274,11 @@ p {
 
 .home-page {
   position: relative;
-  isolation: isolate;
   min-width: 0;
-  background: #f8fafc;
+  background: #fff;
 }
 
-/* Viewport-fixed layer: scales with the screen on every device, keeps aspect, centered */
+/* Viewport-fixed background layer: fills entire viewport edge-to-edge, scales proportionally, crops as needed */
 .home-page::before {
   content: "";
   position: fixed;
@@ -289,16 +288,17 @@ p {
   pointer-events: none;
 }
 
-/* Wide desktop: show the whole square artwork instead of a heavy crop */
-@media (min-width: 1000px) and (min-aspect-ratio: 5/4) {
-  .home-page::before {
-    background-size: contain;
-  }
-}
+/* No aspect-ratio constraint: always use cover to fill viewport completely */
+/* Avoid contain as it leaves white margins on wide screens */
 
 .home-page .site-header,
 .home-main,
 .home-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.home-page main {
   position: relative;
   z-index: 1;
 }
