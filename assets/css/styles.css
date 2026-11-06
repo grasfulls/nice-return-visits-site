@@ -278,18 +278,22 @@ p {
   background: #fff;
 }
 
-/* Viewport-fixed background layer: fills entire viewport edge-to-edge, scales proportionally, crops as needed */
+/* Viewport-fixed background layer: universal scaling rule
+   - Image is square (1:1 aspect ratio)
+   - Scale to fill viewport completely while preserving proportions
+   - If viewport is wider: scale to fill height, crop excess at sides
+   - If viewport is taller: scale to fill width, crop excess at top/bottom
+   - If viewport is square: image fits perfectly
+   - Use 'max()' to ensure at least one dimension fills the viewport */
 .home-page::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: url("../nrv-background.png") center / cover no-repeat;
+  background: url("../nrv-background.png") center / auto no-repeat;
+  background-size: max(100vw, 100vh);
   pointer-events: none;
 }
-
-/* No aspect-ratio constraint: always use cover to fill viewport completely */
-/* Avoid contain as it leaves white margins on wide screens */
 
 .home-page .site-header,
 .home-main,

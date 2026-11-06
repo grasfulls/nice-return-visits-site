@@ -56,51 +56,61 @@ Users select a language by clicking a link; there is no automatic language detec
 
 ---
 
-## Website Visual Branding: Background Requirements
+## Website Visual Branding: Background and Geometry Architecture
 
-**All website pages, in all languages, must use the shared NRV logo/background artwork.**
+**All website pages, in all languages, must use one shared universal background geometry implementation.**
 
-### Background Specification
+Website background and foreground layouts are **unified site architecture**, not page-specific or language-specific. New pages and new languages automatically inherit the shared rules without adding separate CSS.
 
-The background image (`assets/nrv-background.png`) must:
+### Universal Background Geometry Rule
+
+The background image (`assets/nrv-background.png`, 512×512 square image) must:
 
 - **Fill the entire browser viewport** — edge-to-edge with no uncovered white margins
-- **Extend full width and full height** of the visible viewport
-- **Scale proportionally** — never stretch or distort the artwork
-- **Crop when necessary** to accommodate different viewport aspect ratios (e.g., very wide or very tall screens)
-- **Appear behind centered content** — preserve all existing centered foreground text, navigation, and page content
-- **Use CSS `background-size: cover`** — ensures complete viewport fill with proportional scaling
-- **Use `position: fixed; inset: 0; z-index: -1`** — maintains full viewport coverage even when scrolling
-- **Apply to all pages:** Home, Getting Started, Help, FAQ, Contact, Privacy, Terms, and all future pages
+- **Preserve aspect ratio proportionally** — never stretch or distort the artwork
+- **Scale intelligently by viewport aspect ratio:**
+  - **If viewport is wider than square (W:H > 1:1):** Scale image to fill viewport height, allow excess width to crop at left/right edges
+  - **If viewport is taller than square (W:H < 1:1):** Scale image to fill viewport width, allow excess height to crop at top/bottom edges
+  - **If viewport is square (W:H = 1:1):** Image fits perfectly at viewport size
+- **Remain centered** in the viewport
+- **Appear behind all content** — preserve all existing foreground text, navigation, and page content visibility
 
-### Implementation
+### Implementation: Shared Universal Rule
 
-**HTML:** All pages (English and Spanish) use `<body class="home-page">`
+**HTML:** Every page (all languages, all current and future pages) uses `<body class="home-page">`
 
-**CSS:**
+**CSS (one universal implementation for all pages):**
 ```css
 .home-page::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: url("../nrv-background.png") center / cover no-repeat;
+  background: url("../nrv-background.png") center / auto no-repeat;
+  background-size: max(100vw, 100vh);
   pointer-events: none;
 }
 
 .home-page main,
-.home-page .site-footer {
+.home-page .site-footer,
+.home-page .site-header {
   position: relative;
   z-index: 1;
 }
 ```
 
-**Future pages:** When adding new website pages to any language:
-1. Add `class="home-page"` to the `<body>` element
-2. The CSS background will automatically apply
-3. No additional background configuration is needed
+**Why this works:** The `max(100vw, 100vh)` rule ensures the image is scaled to whichever dimension is larger, guaranteeing complete viewport coverage while preserving aspect ratio. The browser automatically handles cropping based on viewport aspect ratio.
 
-**Future languages:** The same background applies to all language versions. Do not create language-specific backgrounds.
+### Future Pages and Languages
+
+When adding new website pages to any language:
+1. Add `class="home-page"` to the `<body>` element
+2. The shared CSS background geometry will automatically apply
+3. No additional background configuration is needed
+4. Do not create page-specific background CSS
+5. Do not create language-specific background CSS
+
+The background geometry and foreground layout are universal site architecture inherited by all pages automatically.
 
 ---
 
