@@ -754,21 +754,21 @@ select:focus-visible,
 }
 
 .home-page > main.content {
-  width: min(100%, 784px);
+  width: min(100%, 1200px);
   max-width: none;
   box-sizing: border-box;
   position: relative;
   z-index: 1;
   margin-inline: auto;
-  padding-inline: 2rem;
+  padding-inline: max(1.25rem, calc((min(100vw, 1200px) - 960px) / 2));
   background: #f8fafc;
 }
 
 .home-page:has(> main.content) > .site-header,
 .home-page > main.content ~ .site-footer {
-  width: min(100%, 784px);
+  width: min(100%, 1200px);
   box-sizing: border-box;
-  padding-inline: 2rem;
+  padding-inline: max(1.25rem, calc((min(100vw, 1200px) - 960px) / 2));
 }
 
 @media (max-width: 760px) {
@@ -788,9 +788,12 @@ select:focus-visible,
   padding-inline: max(1.25rem, calc((min(100vw, 1200px) - 1120px) / 2));
 }
 
-/* Header content follows the main body's content boundaries */
+/* Universal foreground page-view width and geometry
+   All pages (home-main, getting-started, help, faq, contact, privacy, terms)
+   and all languages inherit the same width: 960px centered content
+   with responsive padding. This is not page-specific or language-specific. */
 .home-page {
-  --page-w: 720px;
+  --page-w: 960px;
   --page-gutter: 1.25rem;
 }
 

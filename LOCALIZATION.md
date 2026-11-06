@@ -112,6 +112,44 @@ When adding new website pages to any language:
 
 The background geometry and foreground layout are universal site architecture inherited by all pages automatically.
 
+### Universal Foreground Page-View Width and Geometry
+
+**All website pages, in all languages, use one shared universal foreground (content area) width: 960 pixels centered with responsive padding.**
+
+Website foreground width and geometry are **unified site architecture**, identical to how background geometry is unified. Individual pages and individual languages must not define separate outer content widths.
+
+**Foreground width specification:**
+- **Content area:** 960px centered
+- **Container:** `min(100%, 1200px)` with responsive gutter padding
+- **Responsive padding:** Calculated to maintain 960px content width, adjusting automatically at smaller viewports
+- **Applies to all pages:** Home, Getting Started, Help, FAQ, Contact, Privacy, Terms, and all future pages
+- **Applies to all languages:** English and Spanish pages inherit the same width; future languages will also inherit it
+
+**CSS implementation (one universal rule for all pages):**
+```css
+.home-page {
+  --page-w: 960px;
+  --page-gutter: 1.25rem;
+}
+
+.home-page .site-header {
+  padding-inline: max(var(--page-gutter), calc((min(100vw, 1200px) - var(--page-w)) / 2));
+}
+
+.home-page > main {
+  width: min(100%, 1200px);
+  padding-inline: max(var(--page-gutter), calc((min(100vw, 1200px) - var(--page-w)) / 2));
+}
+```
+
+**Why this works:** All pages (regardless of their HTML structure: `.home-main`, `.getting-started-main`, or `.content`) use the same CSS variables and responsive padding formula. The browser automatically calculates centered positioning and responsive scaling.
+
+**Future pages and languages:** When adding new pages:
+1. Do not define page-specific width overrides
+2. Do not define language-specific width overrides
+3. The shared CSS variables will automatically apply the universal 960px centered width
+4. Content will be properly aligned with the header and footer
+
 ---
 
 ## Website-to-App Language Handoff
