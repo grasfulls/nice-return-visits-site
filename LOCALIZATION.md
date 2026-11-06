@@ -126,6 +126,9 @@ Website foreground width and geometry are **unified site architecture**, identic
 - **Applies to all languages:** English and Spanish pages inherit the same width; future languages will also inherit it
 
 **CSS implementation (one universal rule for all pages):**
+
+All three page elements — header, main content, and footer — use identical padding formulas:
+
 ```css
 .home-page {
   --page-w: 960px;
@@ -140,15 +143,23 @@ Website foreground width and geometry are **unified site architecture**, identic
   width: min(100%, 1200px);
   padding-inline: max(var(--page-gutter), calc((min(100vw, 1200px) - var(--page-w)) / 2));
 }
+
+.home-page > .site-footer {
+  padding-inline: max(var(--page-gutter), calc((min(100vw, 1200px) - var(--page-w)) / 2));
+}
 ```
 
-**Why this works:** All pages (regardless of their HTML structure: `.home-main`, `.getting-started-main`, or `.content`) use the same CSS variables and responsive padding formula. The browser automatically calculates centered positioning and responsive scaling.
+**Why this works:** All three elements use the same `--page-w: 960px` variable and identical padding formula, guaranteeing that the header, main content, and footer are perfectly aligned at all viewport sizes. This universal alignment is achieved through:
+- One CSS variable (`--page-w`) controlling the content width
+- Identical responsive padding formula on header, main, and footer
+- No hardcoded width values or page-specific overrides
+- Automatic inheritance by all current and future pages in all languages
 
 **Future pages and languages:** When adding new pages:
 1. Do not define page-specific width overrides
 2. Do not define language-specific width overrides
 3. The shared CSS variables will automatically apply the universal 960px centered width
-4. Content will be properly aligned with the header and footer
+4. Header, main, and footer will be automatically aligned without additional configuration
 
 ---
 
