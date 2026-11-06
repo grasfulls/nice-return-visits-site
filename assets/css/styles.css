@@ -855,6 +855,62 @@ select:focus-visible,
   text-align: center;
 }
 
+.device-choices {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.device-choices legend {
+  margin-bottom: 0.75rem;
+  font-weight: 700;
+}
+
+.device-choices input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.device-choices label {
+  display: inline-block;
+  margin: 0 0.35rem 0.5rem 0;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid #176b58;
+  border-radius: 0.4rem;
+  background: #fff;
+  color: #176b58;
+  cursor: pointer;
+}
+
+.device-choices input:checked + label {
+  background: #176b58;
+  color: #fff;
+}
+
+.device-choices input:focus-visible + label {
+  outline: 3px solid #f5b52e;
+  outline-offset: 3px;
+}
+
+.device-choices .install-card {
+  display: none;
+  margin-top: 0.5rem;
+}
+
+#device-iphone:checked ~ #install-iphone,
+#device-ipad:checked ~ #install-ipad,
+#device-android:checked ~ #install-other,
+#device-windows:checked ~ #install-other,
+#device-mac:checked ~ #install-other {
+  display: block;
+}
+
+.device-choices .install-card p {
+  margin-top: 0.75rem;
+}
+
 .guide-choice-grid,
 .guide-install-grid,
 .guide-resource-grid {

@@ -71,36 +71,43 @@
         <h2 id="install-heading">Follow the steps for your device</h2>
         <p>Start by opening the NRV app page. Installation choices and labels vary by browser, device, and software version.</p>
       </div>
-      <div class="guide-install-grid">
-        <article class="guide-card install-card">
-          <h3>iPhone or iPad</h3>
-          <img class="install-illustration" src="assets/install-iphone.svg" alt="Simplified Safari Share menu with Add to Home Screen highlighted" width="300" height="210">
+      <fieldset class="device-choices">
+        <legend>Choose your device</legend>
+        <input type="radio" name="install-device" id="device-iphone">
+        <label for="device-iphone">iPhone</label>
+        <input type="radio" name="install-device" id="device-ipad">
+        <label for="device-ipad">iPad</label>
+        <input type="radio" name="install-device" id="device-android">
+        <label for="device-android">Android</label>
+        <input type="radio" name="install-device" id="device-windows">
+        <label for="device-windows">Windows/Desktop</label>
+        <input type="radio" name="install-device" id="device-mac">
+        <label for="device-mac">Mac</label>
+        <article class="guide-card install-card" id="install-iphone">
+          <h3>iPhone: Safari</h3>
           <ol>
-            <li>Open the NRV app page in Safari.</li>
-            <li>Tap <strong>Share</strong>, scroll the menu if needed, then tap <strong>Add to Home Screen</strong>.</li>
-            <li>If NRV opened inside another app, choose <strong>Open in Safari</strong> first.</li>
+            <li>Open the NRV app page in Safari. If it opened inside another app, open it in Safari first.</li>
+            <li>Tap <strong>More</strong> (three dots) near the address bar, then tap <strong>Share</strong> (the square with an upward arrow). If Share is already visible, tap it directly.</li>
+            <li>Scroll down and tap <strong>Add to Home Screen</strong>. If needed, use <strong>Edit Actions</strong> to add it to the Share menu.</li>
+            <li>Turn on <strong>Open as Web App</strong> if offered, then tap <strong>Add</strong>.</li>
           </ol>
+          <p>Safari controls can vary by iOS version and layout. <a href="https://support.apple.com/guide/iphone/iphea86e5236/ios">See Apple's iPhone instructions</a>. For another browser, check its help for installing a website as an app.</p>
         </article>
-        <article class="guide-card install-card">
-          <h3>Android phone or tablet</h3>
-          <img class="install-illustration" src="assets/install-android.svg" alt="Simplified Chrome menu with Install app highlighted" width="300" height="210">
+        <article class="guide-card install-card" id="install-ipad">
+          <h3>iPad: Safari</h3>
           <ol>
-            <li>Open the NRV app page in Chrome.</li>
-            <li>Tap the three-dot menu and choose <strong>Install app</strong> or <strong>Add to Home screen</strong>.</li>
-            <li>Follow the prompt to finish.</li>
+            <li>Open the NRV app page in Safari. If it opened inside another app, open it in Safari first.</li>
+            <li>Tap Safari's <strong>Share</strong> button (the square with an upward arrow).</li>
+            <li>Tap <strong>View More</strong>, then <strong>Add to Home Screen</strong>. You may need to scroll to find it.</li>
+            <li>Turn on <strong>Open as Web App</strong> if offered, then tap <strong>Add</strong>.</li>
           </ol>
+          <p>Controls can vary by iPadOS version. <a href="https://support.apple.com/guide/ipad/bookmark-a-website-ipadc602b75b/ipados">See Apple's iPad instructions</a>. For another browser, check its help for installing a website as an app.</p>
         </article>
-        <article class="guide-card install-card">
-          <h3>Computer: Chrome or Edge</h3>
-          <img class="install-illustration" src="assets/install-computer.svg" alt="Simplified browser address bar with the install icon highlighted" width="300" height="210">
-          <ol>
-            <li>Open the NRV app page in Chrome or Edge.</li>
-            <li>If offered, select the install icon near the right side of the address bar.</li>
-            <li>Follow the prompt. If no install option appears, you can continue using NRV in the browser.</li>
-          </ol>
+        <article class="guide-card install-card" id="install-other">
+          <h3>Installation guidance</h3>
+          <p>Installation steps vary by device and browser. Look for an option such as <strong>Install app</strong> or <strong>Add to Home Screen</strong> in your browser menu. If you don't see one, check your browser's help for installing a website as an app.</p>
         </article>
-      </div>
-      <p class="guide-caption">These illustrations are simplified guides, not exact screenshots. Browser controls and install availability can vary.</p>
+      </fieldset>
     </section>
 
     <section class="guide-section" aria-labelledby="first-use-heading">
