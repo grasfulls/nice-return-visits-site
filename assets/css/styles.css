@@ -289,6 +289,13 @@ p {
   pointer-events: none;
 }
 
+/* Wide desktop: show the whole square artwork instead of a heavy crop */
+@media (min-width: 1000px) and (min-aspect-ratio: 5/4) {
+  .home-page::before {
+    background-size: contain;
+  }
+}
+
 .home-page .site-header,
 .home-main,
 .home-footer {
