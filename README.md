@@ -9,7 +9,7 @@ repository and is live at https://grasfulls.github.io/nice-return-visits-app/.
 
 | Path | Purpose |
 |---|---|
-| `index.html`, `getting-started.html`, `help.html`, `faq.html`, `contact.html`, `privacy.html`, `terms.html` | English pages |
+| `index.html`, `getting-started.html`, `help.html`, `faq.html`, `contact.html`, `privacy.html`, `terms.html`, `version-history.html` | English pages |
 | `es/` | Spanish pages (same file names as the English pages) |
 | `assets/css/styles.css` | Shared stylesheet |
 | `assets/js/language-menu.js` | Header Language dropdown behavior |
@@ -32,3 +32,8 @@ http://localhost:8766/.
 - Each page repeats the same header and footer; update all pages (including
   `es/`) when changing them.
 - Keep English and Spanish pages in step.
+- Version history entries are generated from `release-history.json` in the
+  app repository. Follow its documented approval and release procedure; run
+  `node scripts/release-history.js --write --site <website-directory>` from
+  that repository, then use `--check` with the same site path. Do not edit the
+  generated history entries separately.
