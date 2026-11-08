@@ -5,6 +5,13 @@
   background: #f8fafc;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+  scrollbar-gutter: stable;
+}
+
+@supports not (scrollbar-gutter: stable) {
+  :root {
+    overflow-y: scroll;
+  }
 }
 
 * {
@@ -15,8 +22,71 @@ body {
   min-width: 0;
   min-height: 100vh;
   margin: 0;
+}
+
+.site-background {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  pointer-events: none;
+}
+
+.site-background-tile {
+  min-width: 0;
+  min-height: 0;
+  background: #fff url("../nrv-background.png") center / cover no-repeat;
+}
+
+.site-background-tile:first-child,
+.site-background-tile:last-child {
+  display: none;
+}
+
+@media (min-aspect-ratio: 8/5) {
+  .site-background {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .site-background-tile:first-child,
+  .site-background-tile:last-child {
+    display: block;
+  }
+}
+
+@media (max-aspect-ratio: 1/4) {
+  .site-background {
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  .site-background-tile:first-child,
+  .site-background-tile:last-child {
+    display: block;
+  }
+}
+
+.site-shell {
+  --site-gutter: 2rem;
+  position: relative;
   display: flex;
   flex-direction: column;
+  width: min(100%, 1024px);
+  min-height: 100vh;
+  margin-inline: auto;
+  background: #f8fafc;
+}
+
+.site-header,
+.site-main,
+.site-footer {
+  padding-inline: var(--site-gutter);
+}
+
+@media (max-width: 760px) {
+  .site-shell {
+    --site-gutter: 1.25rem;
+  }
 }
 
 a {
@@ -28,11 +98,10 @@ a:hover {
 }
 
 .site-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  padding: 1.25rem max(1.25rem, calc((100% - 1080px) / 2));
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding-block: 0.8rem;
   background: #fff;
   border-bottom: 1px solid #e2e8f0;
 }
@@ -71,9 +140,8 @@ nav a[aria-current="page"],
   font-weight: 650;
 }
 
-main {
-  width: min(100% - 2.5rem, 960px);
-  margin: 0 auto;
+.site-main {
+  min-width: 0;
   flex: 1;
 }
 
@@ -83,8 +151,7 @@ main {
 }
 
 .content {
-  max-width: 720px;
-  padding: 4.5rem 0;
+  padding-block: 4.5rem;
 }
 
 .eyebrow {
@@ -245,7 +312,7 @@ p {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.25rem max(1.25rem, calc((100% - 1080px) / 2));
+  padding-block: 1.25rem;
   border-top: 1px solid #e2e8f0;
   background: #fff;
 }
@@ -268,55 +335,8 @@ p {
   }
 
   .content {
-    padding: 3rem 0;
+    padding-block: 3rem;
   }
-}
-
-.home-page {
-  position: relative;
-  min-width: 0;
-  background: #fff;
-}
-
-/* Viewport-fixed background layer: universal scaling rule
-   - Image is square (1:1 aspect ratio)
-   - Scale to fill viewport completely while preserving proportions
-   - If viewport is wider: scale to fill height, crop excess at sides
-   - If viewport is taller: scale to fill width, crop excess at top/bottom
-   - If viewport is square: image fits perfectly
-   - Use 'max()' to ensure at least one dimension fills the viewport */
-.home-page::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: url("../nrv-background.png") center / auto no-repeat;
-  background-size: max(100vw, 100vh);
-  pointer-events: none;
-}
-
-.home-page .site-header,
-.home-main,
-.home-footer {
-  position: relative;
-  z-index: 1;
-}
-
-.home-page main {
-  position: relative;
-  z-index: 1;
-}
-
-.home-page .site-header,
-.site-header-standard {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  display: block;
-  width: min(100%, 1200px);
-  margin-inline: auto;
-  padding: 0.8rem max(1.25rem, calc((min(100vw, 1200px) - 960px) / 2));
-  background: #fff;
 }
 
 .header-inner {
@@ -324,11 +344,9 @@ p {
   align-items: center;
   justify-content: space-between;
   gap: 1rem 2rem;
-  max-width: 1120px;
-  margin: 0 auto;
 }
 
-.home-page .brand {
+.brand {
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
@@ -467,10 +485,7 @@ p {
 }
 
 .home-main {
-  width: min(100%, 1200px);
-  padding: 0 0 3rem;
-  padding-inline: max(1.25rem, calc((min(100vw, 1200px) - 960px) / 2));
-  background: #f8fafc;
+  padding-block: 0 3rem;
 }
 
 .home-hero {
@@ -653,14 +668,7 @@ p {
   text-align: center;
 }
 
-.home-footer {
-  width: min(100%, 1200px);
-  margin-inline: auto;
-  padding: 1.25rem max(1.25rem, calc((min(100vw, 1200px) - 1120px) / 2));
-  background: #fff;
-}
-
-.home-footer .copyright {
+.site-footer .copyright {
   margin: 0;
   color: #64748b;
   font-size: 0.9rem;
@@ -672,7 +680,7 @@ p {
   text-decoration: none;
 }
 
-.home-footer nav {
+.site-footer nav {
   justify-content: flex-end;
   gap: 0.5rem;
 }
@@ -705,11 +713,6 @@ select:focus-visible,
 }
 
 @media (max-width: 760px) {
-  .home-page .site-header,
-  .site-header-standard {
-    padding: 0.8rem 1.25rem;
-  }
-
   .header-controls {
     align-items: flex-start;
     flex-direction: column-reverse;
@@ -725,10 +728,6 @@ select:focus-visible,
     text-align: left;
   }
 
-  .home-main {
-    padding-inline: 1rem;
-  }
-
   .home-hero {
     padding: 3rem 0 1.25rem;
   }
@@ -740,82 +739,11 @@ select:focus-visible,
   .optional-section {
     padding: 1.25rem 0.75rem;
   }
-
-  .home-page .site-footer {
-    width: 100%;
-    padding: 1.25rem;
-  }
 }
 
 @media (max-width: 520px) {
   .home-hero .action-item {
     flex-basis: 100%;
-  }
-}
-
-.home-page > main.content {
-  width: min(100%, 1200px);
-  max-width: none;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 1;
-  margin-inline: auto;
-  padding-inline: max(1.25rem, calc((min(100vw, 1200px) - 960px) / 2));
-  background: #f8fafc;
-}
-
-.home-page:has(> main.content) > .site-header,
-.home-page > main.content ~ .site-footer {
-  width: min(100%, 1200px);
-  box-sizing: border-box;
-  padding-inline: max(1.25rem, calc((min(100vw, 1200px) - 960px) / 2));
-}
-
-@media (max-width: 760px) {
-  .home-page > main.content,
-  .home-page:has(> main.content) > .site-header,
-  .home-page > main.content ~ .site-footer {
-    padding-inline: 1.25rem;
-  }
-}
-
-.home-page > .site-footer {
-  position: relative;
-  z-index: 1;
-  box-sizing: border-box;
-  width: min(100%, 1200px);
-  margin-inline: auto;
-  padding-inline: max(1.25rem, calc((min(100vw, 1200px) - 960px) / 2));
-}
-
-/* Universal foreground page-view width and geometry
-   All pages (home-main, getting-started, help, faq, contact, privacy, terms)
-   and all languages inherit the same width: 960px centered content
-   with responsive padding. This is not page-specific or language-specific. */
-.home-page {
-  --page-w: 960px;
-  --page-gutter: 1.25rem;
-}
-
-.home-page:has(.home-main) {
-  --page-w: 960px;
-}
-
-.home-page .site-header {
-  padding-inline: max(var(--page-gutter), calc((min(100vw, 1200px) - var(--page-w)) / 2));
-}
-
-.home-page .header-inner {
-  max-width: none;
-}
-
-@media (max-width: 760px) {
-  .home-page:has(.home-main) {
-    --page-gutter: 1rem;
-  }
-
-  .home-page .site-header {
-    padding-inline: var(--page-gutter);
   }
 }
 
@@ -1088,16 +1016,5 @@ select:focus-visible,
 
   .guide-card {
     padding: 1rem;
-  }
-}
-
-/* Home and Getting Started: same restrained panel framing as the other pages on desktop */
-@media (min-width: 761px) {
-  .home-page > .home-main,
-  .home-page > .site-header,
-  .home-page > .home-footer {
-    width: min(100%, 1024px);
-    box-sizing: border-box;
-    padding-inline: 2rem;
   }
 }

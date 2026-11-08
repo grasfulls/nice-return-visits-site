@@ -58,108 +58,49 @@ Users select a language by clicking a link; there is no automatic language detec
 
 ## Website Visual Branding: Background and Geometry Architecture
 
-**All website pages, in all languages, must use one shared universal background geometry implementation.**
+**Every website page and language uses the same canonical shell** from
+`assets/css/styles.css`. Static pages repeat its markup; future pages must
+include the same structure rather than adding page- or language-specific outer
+layout overrides:
 
-Website background and foreground layouts are **unified site architecture**, not page-specific or language-specific. New pages and new languages automatically inherit the shared rules without adding separate CSS.
-
-### Universal Background Geometry Rule
-
-The background image (`assets/nrv-background.png`, 512×512 square image) must:
-
-- **Fill the entire browser viewport** — edge-to-edge with no uncovered white margins
-- **Preserve aspect ratio proportionally** — never stretch or distort the artwork
-- **Scale intelligently by viewport aspect ratio:**
-  - **If viewport is wider than square (W:H > 1:1):** Scale image to fill viewport height, allow excess width to crop at left/right edges
-  - **If viewport is taller than square (W:H < 1:1):** Scale image to fill viewport width, allow excess height to crop at top/bottom edges
-  - **If viewport is square (W:H = 1:1):** Image fits perfectly at viewport size
-- **Remain centered** in the viewport
-- **Appear behind all content** — preserve all existing foreground text, navigation, and page content visibility
-
-### Implementation: Shared Universal Rule
-
-**HTML:** Every page (all languages, all current and future pages) uses `<body class="home-page">`
-
-**CSS (one universal implementation for all pages):**
-```css
-.home-page::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background: url("../nrv-background.png") center / auto no-repeat;
-  background-size: max(100vw, 100vh);
-  pointer-events: none;
-}
-
-.home-page main,
-.home-page .site-footer,
-.home-page .site-header {
-  position: relative;
-  z-index: 1;
-}
+```html
+<div class="site-background" aria-hidden="true">
+  <div class="site-background-tile"></div>
+  <div class="site-background-tile"></div>
+  <div class="site-background-tile"></div>
+</div>
+<div class="site-shell">
+  <header class="site-header">...</header>
+  <main class="site-main">...</main>
+  <footer class="site-footer">...</footer>
+</div>
 ```
 
-**Why this works:** The `max(100vw, 100vh)` rule ensures the image is scaled to whichever dimension is larger, guaranteeing complete viewport coverage while preserving aspect ratio. The browser automatically handles cropping based on viewport aspect ratio.
+Additional main-content classes may style a page's contents, but must not
+change the shell's background, outer width, or horizontal gutters.
 
-### Future Pages and Languages
+The fixed background uses the existing square `assets/nrv-background.png`.
+One centered image is shown normally; at a width-to-height aspect ratio of
+**1.6:1 or wider**, three images appear side by side; at **1:4 or taller**,
+three are stacked vertically. The middle image is centered on the viewport.
+Each region uses centered `cover` scaling without stretching. The artwork
+itself has white corners and joins may be visible, especially in tall layouts.
 
-When adding new website pages to any language:
-1. Add `class="home-page"` to the `<body>` element
-2. The shared CSS background geometry will automatically apply
-3. No additional background configuration is needed
-4. Do not create page-specific background CSS
-5. Do not create language-specific background CSS
+The opaque `.site-shell` is centered, fills the viewport width up to **1024px**,
+and extends to at least the viewport height. Header, main, and footer share
+**32px** horizontal gutters, reduced to **20px** at widths of 760px or less.
+The header and footer have solid white backgrounds and the main panel is solid
+`#f8fafc`. A stable scrollbar gutter keeps the shell and background aligned
+between long and short pages. Page content may use its own inner layout and
+styling.
 
-The background geometry and foreground layout are universal site architecture inherited by all pages automatically.
+### Stylesheet Cache Versioning
 
-### Universal Foreground Page-View Width and Geometry
-
-**All website pages, in all languages, use one shared universal foreground (content area) width: 960 pixels centered with responsive padding.**
-
-Website foreground width and geometry are **unified site architecture**, identical to how background geometry is unified. Individual pages and individual languages must not define separate outer content widths.
-
-**Foreground width specification:**
-- **Content area:** 960px centered
-- **Container:** `min(100%, 1200px)` with responsive gutter padding
-- **Responsive padding:** Calculated to maintain 960px content width, adjusting automatically at smaller viewports
-- **Applies to all pages:** Home, Getting Started, Help, FAQ, Contact, Privacy, Terms, and all future pages
-- **Applies to all languages:** English and Spanish pages inherit the same width; future languages will also inherit it
-
-**CSS implementation (one universal rule for all pages):**
-
-All three page elements — header, main content, and footer — use identical padding formulas:
-
-```css
-.home-page {
-  --page-w: 960px;
-  --page-gutter: 1.25rem;
-}
-
-.home-page .site-header {
-  padding-inline: max(var(--page-gutter), calc((min(100vw, 1200px) - var(--page-w)) / 2));
-}
-
-.home-page > main {
-  width: min(100%, 1200px);
-  padding-inline: max(var(--page-gutter), calc((min(100vw, 1200px) - var(--page-w)) / 2));
-}
-
-.home-page > .site-footer {
-  padding-inline: max(var(--page-gutter), calc((min(100vw, 1200px) - var(--page-w)) / 2));
-}
-```
-
-**Why this works:** All three elements use the same `--page-w: 960px` variable and identical padding formula, guaranteeing that the header, main content, and footer are perfectly aligned at all viewport sizes. This universal alignment is achieved through:
-- One CSS variable (`--page-w`) controlling the content width
-- Identical responsive padding formula on header, main, and footer
-- No hardcoded width values or page-specific overrides
-- Automatic inheritance by all current and future pages in all languages
-
-**Future pages and languages:** When adding new pages:
-1. Do not define page-specific width overrides
-2. Do not define language-specific width overrides
-3. The shared CSS variables will automatically apply the universal 960px centered width
-4. Header, main, and footer will be automatically aligned without additional configuration
+Every page references the shared stylesheet with the same version query, for
+example `assets/css/styles.css?v=site-shell-2` (Spanish pages use the `../`
+relative path). Whenever the stylesheet changes, update the query value on
+**all** English and translated pages to a new shared value so cached older
+styles are not reused. Keep this value independent of the app release version.
 
 ---
 
