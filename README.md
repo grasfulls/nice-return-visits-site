@@ -3,7 +3,7 @@
 Public website for Nice Return Visits (NRV), hosted at nicereturnvisits.org.
 The installable app is in the separate
 [nice-return-visits-app](https://github.com/grasfulls/nice-return-visits-app)
-repository and is available as [Nice Return Visits](https://grasfulls.github.io/nice-return-visits-app/).
+repository and is available as [Nice Return Visits](https://nicereturnvisits.org/app/).
 
 ## Layout
 
