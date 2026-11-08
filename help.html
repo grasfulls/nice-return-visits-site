@@ -49,6 +49,7 @@
     <nav class="help-toc" aria-label="On this page">
       <h2 id="on-this-page">On this page</h2>
       <ul>
+        <li><a href="#install-guide">Installation and first setup</a></li>
         <li><a href="#what-this-app-does">What this app does</a></li>
         <li><a href="#important-where-your-information-is-kept-is-your-choice">Important: where your information is kept is your choice</a></li>
         <li><a href="#passphrase-optional">Passphrase (optional)</a></li>
@@ -67,6 +68,22 @@
         <li><a href="#more-help">Still need help?</a></li>
       </ul>
     </nav>
+
+    <h2 id="install-guide">Installation and first setup</h2>
+    <p>Open the installation guide in the browser you want to use. Choose your
+      device, then confirm the suggested browser or select another. Follow one
+      step at a time; choose <strong>I don't see it</strong> when offered for
+      help finding a control. Use <strong>Back</strong>,
+      <strong>Cancel installation</strong>, or the website link to leave.</p>
+    <p>If the browser you selected differs from the detected browser, open NRV
+      in the selected browser and start again, or continue if detection was
+      wrong. Once installed, close the browser installation page and open NRV
+      from its new icon. If an NRV app window opens automatically, continue
+      there. Accept the notices and follow setup or recovery.</p>
+    <p>Browser and installed copies may keep separate contacts. Installing an
+      icon does not transfer contacts; back up the original and restore to the
+      intended copy, then verify the contacts before removing the original.</p>
+    <p><a href="https://grasfulls.github.io/nice-return-visits-app/?lang=en&amp;install=1">Start the NRV installation guide</a></p>
 
     <h2 id="what-this-app-does">What this app does</h2>
           <p>
@@ -128,7 +145,7 @@
             <li>
               To protect your data, open
               <strong
-                >Settings → Choices → Passphrase to Open App → Turn On
+                >Settings → Data/Security → Passphrase to Open App → Turn On
                 Passphrase</strong
               >, enter and confirm a passphrase with at least 12 characters, and
               choose <strong>Save Passphrase</strong>. Your saved data is then
@@ -153,7 +170,7 @@
           <h2 id="change-your-passphrase">Change your passphrase</h2>
           <p>
             If a passphrase is on, after unlocking this copy of the app, open
-            <strong>Settings → Choices → Passphrase to Open App</strong>. The
+            <strong>Settings → Data/Security → Passphrase to Open App</strong>. The
             section says you may change the passphrase or turn it off. Choose
             <strong>Change Passphrase</strong>, enter your current passphrase, then
             enter and confirm a new passphrase of at least 12 characters. The app
@@ -165,7 +182,7 @@
           </p>
           <p>
             To stop using a passphrase, open
-            <strong>Settings → Choices → Passphrase to Open App</strong> and choose
+            <strong>Settings → Data/Security → Passphrase to Open App</strong> and choose
             <strong>Turn Off Passphrase</strong>. The app first explains what this
             means: your data is stored without encryption, the app opens without
             asking for a passphrase, your recovery code stops working, and backups
@@ -187,7 +204,7 @@
             <li>
               If you forget your passphrase, type the recovery code in its place on
               the unlock screen. After you are in, open
-              <strong>Settings → Choices → Passphrase to Open App</strong> and
+              <strong>Settings → Data/Security → Passphrase to Open App</strong> and
               choose a new passphrase; you can enter the recovery code as the
               current passphrase. You will get a new recovery code.
             </li>
@@ -199,7 +216,7 @@
               Changing your passphrase makes a new code, and the old one stops
               working. If you lose the code but still know your passphrase, open
               <strong
-                >Settings → Choices → Passphrase to Open App → Recovery Code</strong
+                >Settings → Data/Security → Passphrase to Open App → Recovery Code</strong
               >
               and choose <strong>Make a New Recovery Code</strong>.
             </li>
@@ -213,24 +230,22 @@
           <ul>
             <li>
               Choose the blue <strong>+</strong> button at the top of the contact
-              list, enter a first name, and add any other details you have. A first
-              name is required; other contact details can be completed later.
+              list, enter a first name, choose a country, and select or add a
+              city. These are required; other details can be completed later.
             </li>
             <li>
               Email and phone are optional. Enter an email such as
-              <strong>name@someemail</strong>. Phone numbers are formatted as
+              <strong>name@example.com</strong>. Phone numbers are formatted as
               <strong>(555) 123-4567</strong>; enter a 10-digit U.S. number, or
               include a leading 1 for a U.S. country code.
             </li>
             <li>
-              Choose Country first, then enter State / Province to enable City.
+              Choose Country first, then select a saved city or choose
+              <strong>+ Add City</strong>. State / Province is optional.
               Region and Area become available after choosing a City, and each is
-              optional; you can choose either one, both, or neither. New contacts
-              default to the country saved in Your Details, but you can choose a
-              different country for each contact. The Country list includes Canada,
-              Mexico, United States, saved custom countries, and
-              <strong>+ Country</strong> to add another. Cities are saved as you
-              enter them. The Region and Area lists each include a
+              optional. New contacts start with the country, state, and city
+              saved in Defaults; you can change them for each contact. Choose
+              <strong>+ Country</strong> to add another country. The Region and Area lists each include a
               <strong>+ Add New...</strong> choice so you can add those locations
               without leaving the form. A Region is typically a large part of a
               city, and an Area is a neighborhood. The same Region or Area name can
@@ -276,9 +291,10 @@
               Settings.
             </li>
             <li>
-              In <strong>Settings → Defaults &amp; Your Details</strong>, Your
-              Details stores your name, country, location, address, and home pin.
-              The country saved there is the default for new contacts. Your home
+              In <strong>Settings → Defaults &amp; Your Details</strong>, Defaults
+              stores the starting country, state, and city for new contacts.
+              Your Details stores your optional name, location, address, and home
+              pin. Save changes when leaving. Your home
               shows on the Map as a purple house icon (drag it to adjust), the Map
               opens fitted to include it, and your name is added as “Shared by [your
               name]” to the message when you choose Share on a contact. The app
@@ -291,7 +307,7 @@
           </ul>
           <p>
             In the contact form, choose
-            <strong>Find Address or City Pin</strong> to look up a location using
+            <strong>Use Address Entered</strong> to look up a location using
             OpenStreetMap Nominatim. Choose
             <strong>Use Device Location</strong> instead to request the phone's
             current location. GPS uses the device's location, not the contact's
@@ -301,10 +317,10 @@
             location names are capitalized when you leave the field or save.
             Recognized U.S. state names are saved as standard two-letter
             abbreviations, and state codes are uppercased. Once a pin is set, choose
-            <strong>Confirm pin is correct</strong> and the lookup buttons,
-            coordinates, and map are hidden, leaving a short "Map pin set" line.
-            They return when you choose <strong>Adjust pin</strong> or change the
-            street address, city, or state.
+            <strong>Confirm pin is correct</strong> and the coordinates and map
+            are hidden, leaving a short "Map pin set" line. They return when
+            you choose <strong>Adjust pin</strong>, use a location button, or
+            change the street address, city, or state.
           </p>
           <ul>
             <li>
@@ -322,9 +338,9 @@
               Nominatim only after you choose the lookup button.
             </li>
             <li>
-              Contacts saved without coordinates have no map pin. The Map page
-              reports when matching contacts need coordinates; reopen one and use
-              Find Address or City Pin to add them.
+              Contacts saved without coordinates can appear at an approximate
+              city pin when an online city lookup succeeds. Reopen a contact and
+              use Use Address Entered to add a more precise pin.
             </li>
             <li>
               The Map page opens zoomed to show every pin it will display. It shows
@@ -531,7 +547,7 @@
             <li>
               You can also choose
               <strong
-                >Settings → Choices → Backup or Restore → Local Backup/Restore →
+                >Settings → Data/Security → Backup or Restore → Local Backup/Restore →
                 Back up everything</strong
               >
               to download a full backup at any time. The top of that section also
@@ -540,7 +556,8 @@
             </li>
             <li>
               To move your full collection to a new device, open the app there and
-              choose <strong>Choose Backup to Restore</strong> on the first screen.
+              choose <strong>Restore from a backup file</strong> during setup
+              or use the restore option in Settings.
               Select the backup and, if it is encrypted, enter the passphrase used
               when it was created.
             </li>
@@ -601,7 +618,7 @@
           <h3 id="turn-it-on">Turn it on</h3>
           <ol>
             <li>
-              Open <strong>Settings → Choices → Backup or Restore</strong>. It
+              Open <strong>Settings → Data/Security → Backup or Restore</strong>. It
               starts by telling you which method you are using (Local by default).
               Tap <strong>Switch to Dropbox cloud backup</strong>, then open
               <strong>Cloud Backup/Restore (Dropbox)</strong> and choose
@@ -651,7 +668,7 @@
               your Dropbox are not encrypted. Before connecting, the app explains
               the protection for this copy and lets you continue or cancel. A
               passphrase is optional; you can choose whether to turn it on in
-              Settings → Choices → Passphrase to Open App. Your Dropbox sign-in is
+              Settings → Data/Security → Passphrase to Open App. Your Dropbox sign-in is
               separate from your app passphrase. Copies saved before you turned a
               passphrase on stay unencrypted until you delete them or Dropbox
               removes them.
@@ -659,7 +676,7 @@
             <li>
               To restore, choose
               <strong
-                >Settings → Choices → Backup or Restore → Cloud Backup/Restore
+                >Settings → Data/Security → Backup or Restore → Cloud Backup/Restore
                 (Dropbox) → Restore from Dropbox</strong
               >, pick the latest copy or a dated one, and confirm. Restoring
               replaces the contacts and settings on this device. If the backup is
@@ -708,7 +725,7 @@
               On your main device (the one that has your contacts), make a file
               backup first. If you want encrypted Dropbox copies, turn on the
               passphrase now under
-              <strong>Settings → Choices → Passphrase to Open App</strong> and save
+              <strong>Settings → Data/Security → Passphrase to Open App</strong> and save
               the recovery code. Then connect Dropbox as described above and wait
               for the cloud icon to show it is synced.
             </li>
@@ -717,7 +734,7 @@
               On the second device, install or update the app, open
 
               <strong
-                >Settings → Choices → Backup or Restore → Cloud Backup/Restore
+                >Settings → Data/Security → Backup or Restore → Cloud Backup/Restore
                 (Dropbox)</strong
               >
               and connect to the
@@ -804,7 +821,7 @@
             most once a day. With Dropbox connected, choosing Yes backs up
             immediately; otherwise it opens
             <strong
-              >Settings → Choices → Backup or Restore → Local Backup/Restore</strong
+              >Settings → Data/Security → Backup or Restore → Local Backup/Restore</strong
             >. Only a successful backup resets the count.
           </p>
 
@@ -882,9 +899,9 @@
             <strong>add the app to your Home Screen first</strong> (see
             <a href="getting-started.html#install-heading">Getting Started</a>).
             Once you have the icon, open it and
-            use the <strong>NRV-Install</strong> screen to restore your backup or
-            connect to Dropbox. This ensures you're working with a single, reliable
-            copy.
+            use the <strong>NRV-Install</strong> screen to restore a backup file
+            or continue setup. To use Dropbox, connect it from Settings after
+            opening the app.
           </p>
           <p>
             If you prefer to use a browser tab instead, you can open the
@@ -924,9 +941,8 @@
           <h2 id="already-using-the-app-in-a-browser">Already using the app in a browser?</h2>
           <p>
             <strong>We recommend switching to a Home Screen app icon</strong> if you
-            have been using the app in a browser. The icon eliminates the risk of
-            accidentally creating multiple separate datasets, which can happen when
-            you open the app in different browsers or on different devices.
+            have been using the app in a browser. Using the same icon consistently
+            helps avoid accidentally working in separate copies.
           </p>
           <p>
             The browser version and the Home Screen app are separate copies and do
@@ -936,11 +952,11 @@
             To move your contacts from your browser to the new icon, first confirm
             they are visible in your browser, then choose
             <strong
-              >Settings → Choices → Backup or Restore → Local Backup/Restore → Back
+              >Settings → Data/Security → Backup or Restore → Local Backup/Restore → Back
               up everything</strong
             >. Open the app icon and choose
-            <strong>Choose Backup to Restore</strong> on its unlock screen, or use
-            its restore option in Settings. Keep using your browser until you have
+            <strong>Restore from a backup file</strong> during setup, or use its
+            restore option in Settings. Keep using your browser until you have
             confirmed the contacts are visible in the icon. After the transfer,
             changes made in one copy will not appear in the other, so use only the
             icon from then on.
