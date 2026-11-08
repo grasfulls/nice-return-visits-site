@@ -26,9 +26,17 @@ const styles = fs.readFileSync(
 
 for (const file of pages) {
   const html = fs.readFileSync(path.join(root, file), "utf8");
+  const isSpanish = file.split(path.sep)[0] === "es";
+  const expectedTagline = isSpanish
+    ? "Recuerda tus revisitas."
+    : "Remember Your RVs.";
   assert(
     /<body class="site-shell">/.test(html),
     `${file}: document body is the site shell`,
+  );
+  assert(
+    html.includes(`<span class="brand-tagline">${expectedTagline}</span>`),
+    `${file}: current localized NRV tagline`,
   );
   assert(
     html.includes("styles.css?v=site-shell-3"),
@@ -57,6 +65,9 @@ assert(/background-size:\s*cover;/.test(shellStyles[1]));
 
 for (const file of pages) {
   const original = fs.readFileSync(path.join(archive, file), "utf8");
+  const originalTagline = file.split(path.sep)[0] === "es"
+    ? "Nunca olvides un RV."
+    : "Never forget an RV.";
   assert(
     original.includes('<div class="site-background"'),
     `${file}: original background markup remains archived`,
@@ -64,6 +75,10 @@ for (const file of pages) {
   assert(
     original.includes('<div class="site-shell">'),
     `${file}: original shell remains archived`,
+  );
+  assert(
+    original.includes(`<span class="brand-tagline">${originalTagline}</span>`),
+    `${file}: original tagline remains preserved in the archive`,
   );
 }
 
