@@ -55,6 +55,12 @@ assert(englishGuide.includes("create and download a backup"));
 assert(englishGuide.includes("Keep the existing app available"));
 assert(spanishGuide.includes("cree y descargue una copia de seguridad"));
 assert(spanishGuide.includes("Mantenga disponible la aplicación existente"));
+assert(englishGuide.includes("Already know how to add a website to your Home Screen or desktop?"));
+assert(englishGuide.includes("Tap Install NRV Icon, then use your browser’s usual Add to Home Screen or Install app option"));
+assert(englishGuide.includes("NRV is still being tested across different devices and browsers."));
+assert(spanishGuide.includes("¿Ya sabe cómo añadir un sitio web a la pantalla de inicio o al escritorio?"));
+assert(spanishGuide.includes("Añadir a pantalla de inicio") && spanishGuide.includes("Instalar aplicación"));
+assert(spanishGuide.includes("NRV todavía se está probando en distintos dispositivos y navegadores. Si algo no funciona como se espera, háganoslo saber."));
 assert(
   !/grasfulls\.github\.io\/nice-return-visits-app/.test(
     userFacingPages
