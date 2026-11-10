@@ -27,6 +27,9 @@ const styles = fs.readFileSync(
 for (const file of pages) {
   const html = fs.readFileSync(path.join(root, file), "utf8");
   const isSpanish = file.split(path.sep)[0] === "es";
+  const whatsNewLink = isSpanish
+    ? /<a href="version-history\.html"(?: aria-current="page")?>Novedades<\/a>/
+    : /<a href="version-history\.html"(?: aria-current="page")?>What's New<\/a>/;
   const expectedTagline = isSpanish
     ? "Recuerda tus revisitas."
     : "Remember Your RVs.";
@@ -38,6 +41,7 @@ for (const file of pages) {
     html.includes(`<span class="brand-tagline">${expectedTagline}</span>`),
     `${file}: current localized NRV tagline`,
   );
+  assert(whatsNewLink.test(html), `${file}: discoverable localized What's New navigation`);
   assert(
     html.includes("styles.css?v=site-shell-3"),
     `${file}: load the current shared stylesheet`,
@@ -52,6 +56,12 @@ for (const file of pages) {
       html.includes(`<${element}`),
       `${file}: preserve the ${element} content`,
     );
+  }
+  for (const [file, title] of [
+    ["version-history.html", "<h1>What's New</h1>"],
+    [path.join("es", "version-history.html"), "<h1>Novedades</h1>"],
+  ]) {
+    assert(fs.readFileSync(path.join(root, file), "utf8").includes(title), `${file}: user-facing What’s New title`);
   }
 }
 

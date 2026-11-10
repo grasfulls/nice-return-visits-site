@@ -286,6 +286,10 @@ p {
   margin-top: 2rem;
 }
 
+.faq-item h2[id^="version-"] {
+  scroll-margin-top: 6rem;
+}
+
 .site-footer {
   display: flex;
   align-items: center;
