@@ -79,7 +79,7 @@ layout overrides:
 Additional main-content classes may style a page's contents, but must not
 change the shell's background, outer width, or horizontal gutters.
 
-The fixed background uses the existing square `assets/nrv-background.png`.
+The fixed background uses the existing square `assets/images/nrv-background.png`.
 One centered image is shown normally; at a width-to-height aspect ratio of
 **1.6:1 or wider**, three images appear side by side; at **1:4 or taller**,
 three are stacked vertically. The middle image is centered on the viewport.

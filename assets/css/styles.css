@@ -35,7 +35,7 @@ body {
   background-color: #f8fafc;
   background-image:
     linear-gradient(rgba(248, 250, 252, 0.94), rgba(248, 250, 252, 0.94)),
-    url("../nrv-background.png");
+    url("../images/nrv-background.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

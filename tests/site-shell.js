@@ -70,7 +70,7 @@ assert(shellStyles, "shared full-viewport site shell styles exist");
 assert(/width:\s*100%;/.test(shellStyles[1]));
 assert(/min-height:\s*100vh;/.test(shellStyles[1]));
 assert(/margin:\s*0;/.test(shellStyles[1]));
-assert(/url\("\.\.\/nrv-background\.png"\)/.test(shellStyles[1]));
+assert(/url\("\.\.\/images\/nrv-background\.png"\)/.test(shellStyles[1]));
 assert(/background-size:\s*cover;/.test(shellStyles[1]));
 
 for (const file of pages) {
@@ -99,7 +99,7 @@ assert(
 );
 assert.deepStrictEqual(
   fs.readFileSync(path.join(archive, "assets", "nrv-background.png")),
-  fs.readFileSync(path.join(root, "assets", "nrv-background.png")),
+  fs.readFileSync(path.join(root, "assets", "images", "nrv-background.png")),
   "original NRV background artwork remains unchanged",
 );
 
