@@ -299,6 +299,15 @@ p {
   border-top: 1px solid #e2e8f0;
   background: #fff;
 }
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  max-width: 1088px;
+  margin-inline: auto;
+}
 
 .site-footer p {
   margin: 0;
@@ -323,10 +332,14 @@ p {
 }
 
 .header-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem 2rem;
+    width: 100%;
+    max-width: 1088px;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+  }
 }
 
 .brand {
@@ -468,7 +481,10 @@ p {
 }
 
 .home-main {
-  padding-block: 0 3rem;
+    width: 100%;
+    max-width: 1088px;
+    margin-inline: auto;
+    padding-block: 0 3rem;
 }
 
 .home-hero {
